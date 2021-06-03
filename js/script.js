@@ -17,15 +17,12 @@ let quote;
 let quotes = [
   { 
     quote: 'It’s not a bug. It’s an undocumented feature!',
-    author:'Anonymous'
+    author:'Anonymous',
+    year:'1970s "allegedly"'
   },
   { 
     quote: 'A website without visitors is like a ship lost in the horizon',
-    author:'Dr. Christopher Dayagdag'
-  },
-  { 
-    quote: 'A website without visitors is like a ship lost in the horizon',
-    author:'Dr. Christopher Dayagdag'
+    author:'Dr. Christopher Dayagdag',
   },
   { 
     quote: 'If debugging is the process of removing software bugs, then programming must be the process of putting them in',
@@ -36,18 +33,56 @@ let quotes = [
     author:'Trish Parr'
   },
   { 
-    quote: '“A user interface is like a joke. If you have to explain it, it’s not that good.”',
-    author:'Unknown'
+    quote: 'A user interface is like a joke. If you have to explain it, it’s not that good.',
+    author:'Unknown',
+    citation:'random forum'
   },
   
   { 
-    quote: '“The public is more familiar with bad design than good design. It is, in effect, conditioned to prefer bad design, because that is what it lives with. The new becomes threatening, the old reassuring.”',
+    quote: 'The public is more familiar with bad design than good design. It is, in effect, conditioned to prefer bad design, because that is what it lives with. The new becomes threatening, the old reassuring.',
     author:'Paul Rand'
   },
   { 
-    quote: '“The public is more familiar with bad design than good design. It is, in effect, conditioned to prefer bad design, because that is what it lives with. The new becomes threatening, the old reassuring.”',
-    author:'Paul Rand'
+    quote: 'Measuring programming progress by lines of code is like measuring aircraft building progress by weight',
+    author:'Bill Gates'
   },
+  { 
+    quote: 'A designer knows he has achieved perfection not when there is nothing left to add, but when there is nothing left to take away.',
+    author:'Antoine de Saint-Exupéry'
+  },
+  { 
+    quote: 'Digital design is like painting, except the paint never dries.',
+    author:'Neville Brody'
+  },
+  { 
+    quote: 'Always code as if the guy who ends up maintaining your code will be a violent psychopath who knows where you live.',
+    author:'John F. Woods',
+    citation: 'comp.lang.c++ newsgroup',
+    year: '1991'
+  },
+  { 
+    quote: 'Talk is cheap. Show me the code.',
+    author:'Linus Torvalds'
+  },
+
+  { 
+    quote: 'Writing the first 90 percent of a computer program takes 90 percent of the time. The remaining ten percent also takes 90 percent of the time and the final touches also take 90 percent of the time.',
+    author:'N.J. Rubenking'
+  },
+
+  { 
+    quote: 'Any code of your own that you haven’t looked at for six or more months might as well have been written by someone else.',
+    author:'Eagleson’s Law'
+  },
+  { 
+    quote: 'Websites promote you 24/7: No employee will do that.',
+    author:'Paul Cookson'
+  },
+  { 
+    quote: 'If you want a great site, you’ve got to test. After you’ve worked on a site for even a few weeks, you can’t see it freshly anymore. You know too much. The only way to find out if it really works is to test it.',
+    author:'Steve Krug'
+  },
+  
   
 ]
 
@@ -74,10 +109,12 @@ function printQuote() {
     randomQuote += `<span class="citation">${quote.citation}</span>`;
   }
   if (quote.hasOwnProperty('year')) {
-    randomQuote +=`<span class="year">2016</span>`;
+    randomQuote +=`<span class="year">${quote.year}</span>`;
   }
   randomQuote += `</p>`
   quoteBox.innerHTML = randomQuote;
+  granimInstance() 
+
 }
 
 printQuote();
@@ -88,5 +125,25 @@ printQuote();
  * click event listener for the print quote button
  * DO NOT CHANGE THE CODE BELOW!!
 ***/
+function randomColor() {
+  return  `#${Math.floor(Math.random()*16777215).toString(16)}`
+};
 
-// document.getElementById('load-quote').addEventListener("click", printQuote, false);
+document.getElementById('load-quote').addEventListener("click", printQuote, false);
+
+
+function granimInstance() {new Granim({
+  element: '#granim-canvas',
+  name: 'granim',
+  opacity: [1, 1],
+  states : {
+      "default-state": {
+          gradients: [
+              [randomColor(), randomColor()],
+              [randomColor(), randomColor()]
+          ]
+      }
+  }
+})};
+
+setInterval(printQuote,10000);
