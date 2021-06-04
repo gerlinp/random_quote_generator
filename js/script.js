@@ -82,8 +82,6 @@ let quotes = [
     quote: 'If you want a great site, you’ve got to test. After you’ve worked on a site for even a few weeks, you can’t see it freshly anymore. You know too much. The only way to find out if it really works is to test it.',
     author:'Steve Krug'
   },
-  
-  
 ]
 
 
