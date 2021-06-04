@@ -123,12 +123,14 @@ printQuote();
  * click event listener for the print quote button
  * DO NOT CHANGE THE CODE BELOW!!
 ***/
-function randomColor() {
-  return  `#${Math.floor(Math.random()*16777215).toString(16)}`
-};
+
 
 document.getElementById('load-quote').addEventListener("click", printQuote, false);
 
+
+function randomColor() {
+  return  `#${Math.floor(Math.random()*16777215).toString(16)}`
+};
 
 function granimInstance() {new Granim({
   element: '#granim-canvas',
