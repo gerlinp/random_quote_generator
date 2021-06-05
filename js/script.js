@@ -21,6 +21,12 @@ let quotes = [
     year:'1970s "allegedly"'
   },
   { 
+    quote: 'Programming today is a race between software engineers striving to build bigger and better idiot-proof programs, and the Universe trying to produce bigger and better idiots. So far, the Universe is winning.',
+    author:'Rick Cook',
+    year:'1989',
+    buy:'https://www.amazon.com/Wizardry-Compiled-Rick-Cook/dp/0671698567'
+  },
+  { 
     quote: 'A website without visitors is like a ship lost in the horizon',
     author:'Dr. Christopher Dayagdag',
   },
@@ -82,6 +88,8 @@ let quotes = [
     quote: 'If you want a great site, you’ve got to test. After you’ve worked on a site for even a few weeks, you can’t see it freshly anymore. You know too much. The only way to find out if it really works is to test it.',
     author:'Steve Krug'
   },
+  
+  
 ]
 
 
@@ -93,6 +101,19 @@ function getRandomQuote() {
   return quotes[random]
 }
 
+/***
+ * `randomColor` function
+***/
+
+
+function randomColor() {
+  return  `#${Math.floor(Math.random()*16777215).toString(16)}`
+};
+
+
+function changeBodyBg(){
+  document.body.style.background =  `linear-gradient(270deg,${randomColor()}, ${randomColor()})`;
+}
 
 /***
  * `printQuote` function
@@ -109,13 +130,13 @@ function printQuote() {
   if (quote.hasOwnProperty('year')) {
     randomQuote +=`<span class="year">${quote.year}</span>`;
   }
+  if (quote.hasOwnProperty('buy')) {
+    randomQuote +=`<span class="year"><a href="${quote.buy}">BUY THE BOOK</a></span>`;
+  }
   randomQuote += `</p>`
   quoteBox.innerHTML = randomQuote;
-  granimInstance() 
-
+  changeBodyBg()
 }
-
-printQuote();
 
 
 
@@ -124,26 +145,9 @@ printQuote();
  * DO NOT CHANGE THE CODE BELOW!!
 ***/
 
-
 document.getElementById('load-quote').addEventListener("click", printQuote, false);
 
 
-function randomColor() {
-  return  `#${Math.floor(Math.random()*16777215).toString(16)}`
-};
 
-function granimInstance() {new Granim({
-  element: '#granim-canvas',
-  name: 'granim',
-  opacity: [1, 1],
-  states : {
-      "default-state": {
-          gradients: [
-              [randomColor(), randomColor()],
-              [randomColor(), randomColor()]
-          ]
-      }
-  }
-})};
 
 setInterval(printQuote,10000);
