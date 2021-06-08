@@ -17,76 +17,76 @@ let quote;
 let quotes = [
   { 
     quote: 'It’s not a bug. It’s an undocumented feature!',
-    author:'Anonymous',
+    source:'Anonymous',
     year:'1970s "allegedly"'
   },
   { 
     quote: 'Programming today is a race between software engineers striving to build bigger and better idiot-proof programs, and the Universe trying to produce bigger and better idiots. So far, the Universe is winning.',
-    author:'Rick Cook',
+    source:'Rick Cook',
     year:'1989',
     buy:'https://www.amazon.com/Wizardry-Compiled-Rick-Cook/dp/0671698567'
   },
   { 
     quote: 'A website without visitors is like a ship lost in the horizon',
-    author:'Dr. Christopher Dayagdag',
+    source:'Dr. Christopher Dayagdag',
   },
   { 
     quote: 'If debugging is the process of removing software bugs, then programming must be the process of putting them in',
-    author:'Edsger Dijkstra'
+    source:'Edsger Dijkstra'
   },
   { 
     quote: 'If you think math is hard, try web design.',
-    author:'Trish Parr'
+    source:'Trish Parr'
   },
   { 
     quote: 'A user interface is like a joke. If you have to explain it, it’s not that good.',
-    author:'Unknown',
+    source:'Unknown',
     citation:'random forum'
   },
   
   { 
     quote: 'The public is more familiar with bad design than good design. It is, in effect, conditioned to prefer bad design, because that is what it lives with. The new becomes threatening, the old reassuring.',
-    author:'Paul Rand'
+    source:'Paul Rand'
   },
   { 
     quote: 'Measuring programming progress by lines of code is like measuring aircraft building progress by weight',
-    author:'Bill Gates'
+    source:'Bill Gates'
   },
   { 
     quote: 'A designer knows he has achieved perfection not when there is nothing left to add, but when there is nothing left to take away.',
-    author:'Antoine de Saint-Exupéry'
+    source:'Antoine de Saint-Exupéry'
   },
   { 
     quote: 'Digital design is like painting, except the paint never dries.',
-    author:'Neville Brody'
+    source:'Neville Brody'
   },
   { 
     quote: 'Always code as if the guy who ends up maintaining your code will be a violent psychopath who knows where you live.',
-    author:'John F. Woods',
+    source:'John F. Woods',
     citation: 'comp.lang.c++ newsgroup',
     year: '1991'
   },
   { 
     quote: 'Talk is cheap. Show me the code.',
-    author:'Linus Torvalds'
+    source:'Linus Torvalds'
   },
 
   { 
     quote: 'Writing the first 90 percent of a computer program takes 90 percent of the time. The remaining ten percent also takes 90 percent of the time and the final touches also take 90 percent of the time.',
-    author:'N.J. Rubenking'
+    source:'N.J. Rubenking'
   },
 
   { 
     quote: 'Any code of your own that you haven’t looked at for six or more months might as well have been written by someone else.',
-    author:'Eagleson’s Law'
+    source:'Eagleson’s Law'
   },
   { 
     quote: 'Websites promote you 24/7: No employee will do that.',
-    author:'Paul Cookson'
+    source:'Paul Cookson'
   },
   { 
     quote: 'If you want a great site, you’ve got to test. After you’ve worked on a site for even a few weeks, you can’t see it freshly anymore. You know too much. The only way to find out if it really works is to test it.',
-    author:'Steve Krug'
+    source:'Steve Krug'
   },
   
   
@@ -123,7 +123,7 @@ let quoteBox = document.querySelector('#quote-box');
 function printQuote() {
   quote = getRandomQuote();
   let randomQuote = `<p class="quote">${quote.quote}</p>
-  <p class="source">${quote.author}`;
+  <p class="source">${quote.source}`;
   if (quote.hasOwnProperty('citation')) {
     randomQuote += `<span class="citation">${quote.citation}</span>`;
   }
